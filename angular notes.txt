@@ -1,0 +1,165 @@
+rxjs operators : 
+
+of 
+from 
+forkjoin : parallel execution of multiple http req you can use catcherror operator for each req to handle error 
+
+forkJoin({
+      users: this.http.get('https://jsonplaceholder.typicode.com/users')
+        .pipe(
+          catchError(error => {
+            console.error('Error in users request', error);
+            return of([]); // Fallback value
+          })
+        ),
+      posts: this.http.get('https://jsonplaceholder.typicode.com/posts')
+        .pipe(
+          catchError(error => {
+            console.error('Error in posts request', error);
+            return of([]); // Fallback value
+          })
+        ),
+      comments: this.http.get('https://jsonplaceholder.typicode.com/comments')
+        .pipe(
+          catchError(error => {
+            console.error('Error in comments request', error);
+            return of([]); // Fallback value
+          })
+        )
+    }).subscribe({
+      next: (results) => {
+        console.log('Users:', results.users);
+        console.log('Posts:', results.posts);
+        console.log('Comments:', results.comments);
+      },
+      error: (err) => {
+        // This will NOT run unless forkJoin itself fails (e.g., if the observable setup fails before emitting)
+        console.error('Unexpected error:', err);
+      }
+    });
+  }
+}
+
+switchmap 
+mergemap
+concatmap
+catcherror
+diff bewt concat all and concatmap
+
+concatmap() is combination of map() and concatall()
+this is used in case of observable of observables
+
+
+map transforms each observable and concatall() merge all observables and subscribe to one merged observable
+
+
+In Angular, reference types are a way to interact with DOM elements or Angular components directly in your templates. They are typically used with template reference variables and can be categorized into the following types:
+
+1. Template Reference Variables
+These are variables declared in the template using the # symbol (e.g., #myVar).
+They allow you to reference DOM elements, Angular components, or directives within the template.
+
+Example:
+
+Copy the code
+<input #inputRef type="text" />
+<button (click)="logValue(inputRef.value)">Log Value</button>
+
+
+Here, #inputRef is a reference to the <input> element, and its value can be accessed in the component.
+
+2. ElementRef
+ElementRef is a wrapper around a native DOM element. It is provided by Angular and can be injected into a component or directive.
+It is often used in conjunction with @ViewChild or @ViewChildren to access DOM elements programmatically.
+
+Example:
+
+Copy the code
+import { Component, ElementRef, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'app-example',
+  template: `<input #inputRef type="text" />`,
+})
+export class ExampleComponent {
+  @ViewChild('inputRef') inputElement!: ElementRef;
+
+  ngAfterViewInit() {
+    console.log(this.inputElement.nativeElement.value); // Access the DOM element
+  }
+}
+
+3. Directive or Component References
+Template reference variables can also point to Angular components or directives, allowing you to interact with their public properties and methods.
+
+Example:
+
+Copy the code
+<app-child #childComp></app-child>
+<button (click)="childComp.someMethod()">Call Child Method</button>
+
+
+Here, #childComp references the app-child component, and you can call its someMethod() directly.
+
+4. ViewContainerRef
+This is used to gain programmatic control over a container where views (templates or components) can be dynamically added or removed.
+It is commonly used with @ViewChild or @ViewContainerRef.
+
+Example:
+
+Copy the code
+import { Component, ViewChild, ViewContainerRef } from '@angular/core';
+
+@Component({
+  selector: 'app-dynamic',
+  template: `<ng-container #container></ng-container>`,
+})
+export class DynamicComponent {
+  @ViewChild('container', { read: ViewContainerRef }) container!: ViewContainerRef;
+
+  addComponent(component: any) {
+    this.container.createComponent(component);
+  }
+}
+
+5. TemplateRef
+TemplateRef represents an embedded template that can be programmatically instantiated and rendered.
+It is often used with structural directives like *ngIf or *ngFor.
+
+Example:
+
+Copy the code
+import { Component, TemplateRef, ViewChild } from '@angular/core';
+
+@Component({
+  selector: 'app-template',
+  template: `
+    <ng-template #myTemplate>
+      <p>This is a dynamic template!</p>
+    </ng-template>
+  `,
+})
+export class TemplateComponent {
+  @ViewChild('myTemplate') template!: TemplateRef<any>;
+
+  useTemplate() {
+    console.log(this.template); // Access the template programmatically
+  }
+}
+
+
+These reference types are powerful tools in Angular, enabling developers to interact with the DOM, dynamically manipulate views, and communicate between components effectively.
+
+
+authguards:
+
+1. canactive if module is not lazy loaded , when module is not lazy loaded its already loaded so canactivate is only preventing to specific route cannt stop to load the module as module is already loaded
+2. canload if module is lazy loaded , becoz in lazy loading module is not loaded until we goes to that route so that canload guard can prevent to load such module if it is false
+
+
+
+
+
+
+
+

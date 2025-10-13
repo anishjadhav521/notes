@@ -1,0 +1,40 @@
+window function are the function which works on collective rows of window i.e. it works on multiple rows
+types:
+1) aggregate 
+2) ranking
+3) value/analytical function 
+
+instead of giving one collective result as aggregate function it creates a separate row for results which may be same or vary row by row 
+
+COALESCE
+SELECT COALESCE(NULL, NULL, 'Hello', 'World') AS Result;
+-- Output: 'Hello'
+
+coalesce function returns
+The first non-NULL value from the list.
+If all expressions are NULL, it returns NULL.
+
+INFORMATION_SCHEMA.TABLES
+INFORMATION_SCHEMA.TABLES is a system view provided by most relational databases 
+Purpose: Give you a consistent way to query database metadata (tables, columns, constraints, etc.) without relying on vendor-specific system tables.
+
+INFORMATION_SCHEMA.TABLES contain :
+
+TABLE_CATALOG → Database name
+TABLE_SCHEMA → Schema name (e.g., dbo, prc)
+TABLE_NAME → Table name
+TABLE_TYPE → 'BASE TABLE' (real table) or 'VIEW'
+
+primary key is can be only one but unique key can be multiple
+primary key cant consist null but unique key can have multiple nulls
+
+backup collection/table
+we can backup collection in mongo by $merge pipe line which gets applied on source collection 
+e.g
+  db[sourceCollection].aggregate(    {
+      $merge: {
+        into: backupCollectionName,
+        whenMatched: "keepExisting", // keep first snapshot of the day
+        whenNotMatched: "insert"
+      }
+    });

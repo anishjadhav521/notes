@@ -1,0 +1,118 @@
+MyClass obj;       // Stack allocation
+MyClass* objPtr = new MyClass();  // Dynamic allocation
+MyClass obj{};  // ✅ Preferred to avoid confusion
+
+(*objPtr).sayHello();  // ✅ This works
+*objPtr.sayHello();  // ❌ This is incorrect
+
+friendfuction
+
+ const data members must be initialized using a constructor initializer list
+class A {
+    const int x;
+public:
+    A(int val) : x(val) {}  // ✅ OK
+};
+
+class A {
+    const int x;
+public:
+    A(int val) {
+        x = val;  // ❌ Error: assignment to const
+    }
+};
+
+
+You cannot assign to const or reference members inside the constructor body — they must be initialized.
+
+class Demo {
+    const int x;
+    int& ref;
+public:
+    Demo(int a, int& r) : x(a), ref(r) {}  // must use initializer list
+};
+
+
+if object or any varible is get created in heap then you have to manually destroy it destructor doesn't destroy it
+Shape* shape1 = new Circle();
+delete shape1 
+
+//abstract class
+class Shape {
+public:
+    // Pure virtual function
+    virtual void draw() = 0;
+
+    // Virtual destructor (good practice)
+    virtual ~Shape() {}
+};
+
+basically base class constuctor is called when we create obj of its child class , but what if we declare a paramerised constructor in parent class so we can call this constuctore by super in java and by this syntax in cpp ==> Derived(int x) : Base(x) , due to which we can use propertis of parent which is unlocked by parent constructor
+
+below is  Constructor Member Initializer List 
+which is used for constants becoz const members must be initialized at declaration
+either we can assign const member at declaration line or we can assign it by initializers list
+class Demo {
+    int a;
+    const int b;
+public:
+    Demo(int x, int y) : a(x), b(y) {
+        // a and b are initialized before constructor body runs
+        cout << "Constructor executed\n";
+    }
+
+    void show() {
+        cout << "a = " << a << ", b = " << b << endl;
+    }
+};
+
+always we need to initialize static variable outside the class by using global scope varible
+
+diamond problem solved by inheriting classes in virtual mode
+class B : virtual public A { };
+class C : virtual public A { };
+class D : public B, public C { };
+which makes only one shared copy of A
+
+
+vertual function :
+
+class Animal {
+public:
+    void sound() { cout << "Animal sound\n"; }
+};
+
+class Dog : public Animal {
+public:
+    void sound() { cout << "Dog barks\n"; }
+};
+
+int main() {
+    Animal* a = new Dog();
+    a->sound();  // ❌ Output: Animal sound
+}
+
+basically it provide runtime behaviour 
+without virtual 
+Animal* a = new Dog();
+a->sound();
+this will alway call base class function
+
+below is example of virtual
+class Animal {
+public:
+    virtual void sound() { cout << "Animal sound\n"; }
+};
+
+class Dog : public Animal {
+public:
+    void sound() override { cout << "Dog barks\n"; }
+};
+
+int main() {
+    Animal* a = new Dog();
+    a->sound();  // ✅ Output: Dog barks
+}
+
+
+

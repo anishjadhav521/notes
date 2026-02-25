@@ -1,0 +1,14 @@
+event loop :
+
+microtask : microtask is a function which is called after main call stack is empty and this is called by program which made it (more priority than macrotask)
+macrotask : after micro task , macrotask is called
+
+promises are in microtask and settimout is in macro
+
+Promise.resolve
+Promise.reject
+
+are used to directly return promise and can be hanled in .then() and .catch()
+and imp thing is you need to throw error from reject only that goes to catch , if you throw error from resolve it dont go to .catch() and not even tracked by try catch block  , it goes to .then()
+
+

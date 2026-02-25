@@ -9,8 +9,7 @@ Promise :
 
 Promise.resolve
 Promise.reject
-
-are used to directly return promise and can be hanled in .then() and .catch()
+both of above are used to directly return promise and can be hanled in .then() and .catch()
 and imp thing is you need to throw error from reject only that goes to catch , if you throw error from resolve it dont go to .catch() and not even tracked by try catch block  , it goes to .then()
 
 Promise.resolve() has 2 purpose it will 
@@ -39,5 +38,5 @@ code ex:
     })
     .catch((error: any) => next(error));
 
-here relove is not sending fullfilled promise , its just verifying passed promise is promise or simple value , if its simple value convert it into promise (it do not convert normal errors into rejected promise , it always converts into fullfilled promise)
+here relove verifying passed data is promise or simple value , if its simple value convert it into fullfilled promise (it do not convert normal errors into rejected promise , it always converts into fullfilled promise)
 when we throw error from async function it will automatically make rejected promise and handled by .catch() , if we throw error from simple method then it will be synchronous error and handled by try/catch block not by .catch()

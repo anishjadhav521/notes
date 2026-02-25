@@ -5,6 +5,8 @@ macrotask : after micro task , macrotask is called
 
 promises are in microtask and settimout is in macro
 
+Promise :
+
 Promise.resolve
 Promise.reject
 

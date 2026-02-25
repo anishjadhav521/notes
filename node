@@ -7,7 +7,7 @@ promises are in microtask and settimout is in macro
 
 Promise :
 
-Promise.resolve
+Promise.resolve : we use it to directly return data if cache has the data ,no need to hit the actual api (so resolve converts normal data which is in cache into fullflled Promises or if its promise in cache then kept as it is )
 Promise.reject
 both of above are used to directly return promise and can be hanled in .then() and .catch()
 and imp thing is you need to throw error from reject only that goes to catch , if you throw error from resolve it dont go to .catch() and not even tracked by try catch block  , it goes to .then()

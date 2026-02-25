@@ -39,4 +39,5 @@ code ex:
     })
     .catch((error: any) => next(error));
 
-here relove is not sending fullfilled promise , its just verifying passed promise is promise or simple value , if its simple value convert it into promise 
+here relove is not sending fullfilled promise , its just verifying passed promise is promise or simple value , if its simple value convert it into promise (it do not convert normal errors into rejected promise , it always converts into fullfilled promise)
+when we throw error from async function it will automatically make rejected promise and handled by .catch() , if we throw error from simple method then it will be synchronous error and handled by try/catch block not by .catch()

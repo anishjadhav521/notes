@@ -13,4 +13,30 @@ Promise.reject
 are used to directly return promise and can be hanled in .then() and .catch()
 and imp thing is you need to throw error from reject only that goes to catch , if you throw error from resolve it dont go to .catch() and not even tracked by try catch block  , it goes to .then()
 
+Promise.resolve() has 2 purpose it will 
+1. Create a resolved promise from a plain value:
+Promise.resolve(42);        // Promise that resolves with 42
+Promise.resolve('hello');   // Promise that resolves with 'hello'
+Promise.resolve();          // Promise that resolves with undefined
 
+2. Normalize any value into a proper Promise (safety wrapper):
+const p = Promise.reject('error');
+Promise.resolve(p);  // still rejected — just ensures it's a real Promise
+
+const thenable = { then: (cb) => cb(10) };
+Promise.resolve(thenable);  // converts thenable → real Promise
+
+code ex:
+ Promise.resolve(promise)
+    .then((data: any) => {
+      let statusCode = successStatus;
+      let headers;
+      if (isController(controllerObj)) {
+        headers = controllerObj.getHeaders();
+        statusCode = controllerObj.getStatus() || statusCode;
+      }
+      returnHandler(response, statusCode, data, headers);
+    })
+    .catch((error: any) => next(error));
+
+here relove is not sending fullfilled promise , its just verifying passed promise is promise or simple value , if its simple value convert it into promise 

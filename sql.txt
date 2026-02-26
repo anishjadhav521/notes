@@ -25,8 +25,8 @@ TABLE_SCHEMA → Schema name (e.g., dbo, prc)
 TABLE_NAME → Table name
 TABLE_TYPE → 'BASE TABLE' (real table) or 'VIEW'
 
-primary key is can be only one but unique key can be multiple
-primary key cant consist null but unique key can have multiple nulls
+primary key can be only one but unique key can be multiple
+primary key cant consist null but unique key can have multiple nulls ,(it dependes on db as many db supports that null != null so multiple null are valid in sql server db)
 
 backup collection/table
 we can backup collection in mongo by $merge pipe line which gets applied on source collection 

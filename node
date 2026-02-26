@@ -6,6 +6,12 @@ macrotask : after micro task , macrotask is called
 macro task queue has 6 phases bt after each phase micro task queue executes 
 process.nextTick() is a sepereate queue which is not part of event loop , it get execute after current js code get execute (it is used by node)
 all callback are stored in its queue of current program ,once program get executed these callback executed
+eg.
+const server = net.createServer(() => {}).listen(8080);
+server.on('listening', () => {});
+
+here after listening on port 8000 node fires event of "listening" but it get fired before server.on() function get executed (i.e handle is not registered for listening event so callback insed this server.on wont run )
+to avoid this problem node register event emission callback inside process.nextTick() so that event get fired after js code get executed , now hanlde is registered and ready to listen the fired event "listening"
 
 promises are in microtask and settimout is in macro
 

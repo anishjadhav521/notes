@@ -2,8 +2,10 @@ event loop :
 
 microtask : microtask is a function which is called after main call stack is empty and this is called by program which made it (more priority than macrotask)
 macrotask : after micro task , macrotask is called
-
 macro task queue has 6 phases bt after each phase micro task queue executes 
+
+process.nextTick() :
+
 process.nextTick() is a sepereate queue which is not part of event loop , it get execute after current js code get execute (it is used by node)
 all callback are stored in its queue of current program ,once program get executed these callback executed
 eg.

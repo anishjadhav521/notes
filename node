@@ -14,6 +14,7 @@ server.on('listening', () => {});
 
 here after listening on port 8000 node fires event of "listening" but it get fired before server.on() function get executed (i.e handle is not registered for listening event so callback insed this server.on wont run )
 to avoid this problem node register event emission callback inside process.nextTick() so that event get fired after js code get executed , now hanlde is registered and ready to listen the fired event "listening"
+e.g. return process.nextTick(() => server.emit('listening'));
 
 promises are in microtask and settimout is in macro
 

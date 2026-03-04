@@ -55,3 +55,7 @@ here relove verifying passed data is promise or simple value , if its simple val
 when we throw error from async function it will automatically make rejected promise and handled by .catch() , if we throw error from simple method then it will be synchronous error and handled by try/catch block not by .catch()
 
 imp : async always wraps responce in promise and await unwraps the responce
+
+fastify is faster than express
+https://chatgpt.com/share/69a8503c-9138-8013-9fc5-1cf0f378389c
+

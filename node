@@ -60,6 +60,7 @@ fastify is faster than express
 https://chatgpt.com/share/69a8503c-9138-8013-9fc5-1cf0f378389c
 
 
+this nodejs architecture
         ┌──────────────────────────────┐
         │          Node.js             │
         │  ┌────────┐  ┌───────────┐  │
@@ -75,8 +76,8 @@ https://chatgpt.com/share/69a8503c-9138-8013-9fc5-1cf0f378389c
      │ (epoll/kqueue)  │         │   (4 workers)   │
      │ Network, timers │         │ fs, dns, crypto │
      └─────────────────┘         └─────────────────┘
-this nodejs architecture
 
+this is worker thread architecture 
 ┌─────────────────────────────────────────────────┐
 │                  Node.js Process                │
 │                                                 │
@@ -99,5 +100,6 @@ this nodejs architecture
 │  └──────────────────────┘                       │
 └─────────────────────────────────────────────────┘
 
+v8 compile nd run js in main thread , cpu intensive task is forwarded to thread pool which has seperate threads
+file
 
-this is worker thread architecture 

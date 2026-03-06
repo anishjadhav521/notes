@@ -59,3 +59,45 @@ imp : async always wraps responce in promise and await unwraps the responce
 fastify is faster than express
 https://chatgpt.com/share/69a8503c-9138-8013-9fc5-1cf0f378389c
 
+
+        ┌──────────────────────────────┐
+        │          Node.js             │
+        │  ┌────────┐  ┌───────────┐  │
+        │  │   V8   │  │  libuv    │  │
+        │  │(JS Run)│  │(Async I/O)│  │
+        │  └────────┘  └─────┬─────┘  │
+        └────────────────────┼────────┘
+                             │
+              ┌──────────────┴──────────────┐
+              │                             │
+     ┌────────▼────────┐         ┌──────────▼──────┐
+     │   OS Kernel     │         │   Thread Pool   │
+     │ (epoll/kqueue)  │         │   (4 workers)   │
+     │ Network, timers │         │ fs, dns, crypto │
+     └─────────────────┘         └─────────────────┘
+this nodejs architecture
+
+┌─────────────────────────────────────────────────┐
+│                  Node.js Process                │
+│                                                 │
+│  ┌─────────────┐                                │
+│  │ Main Thread │  ← your app runs here          │
+│  │  (V8 + EL)  │                                │
+│  └─────────────┘                                │
+│                                                 │
+│  ┌──────────────────────┐                       │
+│  │   libuv Thread Pool  │  ← managed by libuv   │
+│  │  W1  W2  W3  W4      │  ← no JS, just C ops  │
+│  │  fs  dns crypto zlib │  ← max UV_THREADPOOL  │
+│  └──────────────────────┘                       │
+│                                                 │
+│  ┌──────────────────────┐                       │
+│  │    Worker Threads    │  ← you create these   │
+│  │  ┌────┐ ┌────┐       │                       │
+│  │  │ W1 │ │ W2 │ ...   │  ← each has V8 + EL  │
+│  │  └────┘ └────┘       │  ← runs actual JS     │
+│  └──────────────────────┘                       │
+└─────────────────────────────────────────────────┘
+
+
+this is worker thread architecture 

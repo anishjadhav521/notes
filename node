@@ -116,3 +116,6 @@ const { parentPort } = require('worker_threads')
 let result = doHeavyCPUWork()
 parentPort.postMessage(result)
 
+Each Worker Thread has its own V8 instance + own Event Loop — completely isolated from the main thread.
+
+

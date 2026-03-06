@@ -60,6 +60,13 @@ Are you going to UPDATE or DELETE the row?
 for no key update : this lock is very optimal coz it locks the row , whoes values are getting updated nd deleted (it insures only non key values are getting modified or deleted)
 it allows FOR KEY SHARE lock while current row is in lock of FOR NO KEY UPDATE lock , ususally FOR KEY SHARE is used by postgress to insure that keys which are used in that transaction are exists nd if exists it locks that keys so that it wont be updated or deleted
 
+NOWAIT: don’t wait—error immediately if the row is locked
+eg.
+SELECT *
+FROM jobs
+WHERE id = 7
+FOR UPDATE NOWAIT;
+
 for update : bt here there is strict lock on row , FOR KEY SHARE is also not allowed here , this used when we have to change fk nd pk also 
 
 

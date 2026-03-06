@@ -38,3 +38,26 @@ e.g
         whenNotMatched: "insert"
       }
     });
+
+lock in postgress
+Are you going to UPDATE or DELETE the row?
+│
+├── YES
+│    ├── Will you change the primary/unique key or DELETE?
+│    │    └── YES → FOR UPDATE 
+│    │
+│    └── Only changing non-key columns (balance, status, name...)?
+│         └── FOR NO KEY UPDATE  ✅ preferred ,it allows fk check lock as for key share 
+│              
+└── NO (just reading)
+     ├── Need to ensure row won't be modified while you read?
+     │    └── FOR SHARE
+     │
+     └── Just need the row's key/identity to stay (FK check)?
+          └── FOR KEY SHARE  (PostgreSQL does this automatically)
+              this lock insures that fk in current transaction exist as pk of other table , it is not delelted, locks this pk
+
+for no key update : this lock is very optimal coz it locks the row , whoes values are getting updated nd deleted (it insures only non key values are getting modified or deleted)
+it allows FOR KEY SHARE lock while current row is in lock of FOR NO KEY UPDATE lock , ususally FOR KEY SHARE is used by postgress to insure that keys which are used in that transaction are exists nd if exists it locks that keys so that it wont be updated or deleted
+
+

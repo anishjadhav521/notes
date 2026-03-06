@@ -101,5 +101,18 @@ this is worker thread architecture
 └─────────────────────────────────────────────────┘
 
 v8 compile nd run js in main thread , cpu intensive task is forwarded to thread pool which has seperate threads
-file
+file I/O ,dns lookup , becrypt pass ,tcp http socket such kind of cpu intensive task is handled by libuv
+
+
+worker thread
+// main.js
+const { Worker } = require('worker_threads')
+const worker = new Worker('./heavy-task.js')
+worker.on('message', result => console.log(result))
+
+// heavy-task.js  ← runs in its OWN V8 + Event Loop
+const { parentPort } = require('worker_threads')
+// actual JS runs here — loops, parsing, anything
+let result = doHeavyCPUWork()
+parentPort.postMessage(result)
 

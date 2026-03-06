@@ -71,4 +71,8 @@ FOR UPDATE NOWAIT;
 
 Plain SELECT always runs instantly regardless of any locks. It just reads the last committed snapshot. This is the biggest practical benefit of MVCC — readers never block writers, writers never block readers.
 
+Tip	                   Problem it solves
+Consistent lock order	 Two transactions waiting on each other in a cycle
+Short transactions	   Locks held too long, queuing up other transactions
+Selective WHERE (PK)	 Accidentally locking rows you don't need
 

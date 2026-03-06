@@ -102,7 +102,7 @@ this is worker thread architecture
 
 v8 compile nd run js in main thread , cpu intensive task is forwarded to thread pool which has seperate threads
 file I/O ,dns lookup , becrypt pass ,tcp http socket such kind of cpu intensive task is handled by libuv
-
+thread pool does not execute js
 
 worker thread
 // main.js

@@ -1,3 +1,5 @@
+
+
 event loop :
 
 microtask : microtask is a function which is called after main call stack is empty and this is called by program which made it (more priority than macrotask)
@@ -117,5 +119,11 @@ let result = doHeavyCPUWork()
 parentPort.postMessage(result)
 
 Each Worker Thread has its own V8 instance + own Event Loop — completely isolated from the main thread.
+
+callbacks :
+
+call backs are to run async program 
+when we pass a callback to function that call back is executed once function execution is done , bt it doesnt mean ot stops other works 
+in event loop that call back has been registered for respe function once function has executed it call the callback
 
 

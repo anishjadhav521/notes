@@ -62,6 +62,8 @@ it allows FOR KEY SHARE lock while current row is in lock of FOR NO KEY UPDATE l
 
 for update : bt here there is strict lock on row , FOR KEY SHARE is also not allowed here , this used when we have to change fk nd pk also 
 
+shared lock means it aquires lock and other can also aquired shared lock , means other also can read bt no one can modify
+
 NOWAIT: don’t wait—error immediately if the row is locked
 eg.
 SELECT *

@@ -40,6 +40,15 @@ e.g
     });
 
 lock in postgress
+
+basically locks are already used by posgress and mssql by default while updating, we need it when we need to previously lock the rows then do some stuff and then update, in this case manual locking plays role
+eg.
+BEGIN;
+SELECT * FROM my_table WHERE id = 1 FOR UPDATE;
+-- Do some logic
+UPDATE my_table SET column1 = 'value' WHERE id = 1;
+COMMIT;
+
 Are you going to UPDATE or DELETE the row?
 │
 ├── YES

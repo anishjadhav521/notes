@@ -77,5 +77,10 @@ ii) dynamic (by using linked list)
 auxiliary space is space which is temporly used for calculation in algorithm
 
 
+tree imp concepts :
+
+balanced binary tree = height of left subtree - height of right sub tree <= 1
+diameter = height of left subtree + height of right sub tree
+
 
 

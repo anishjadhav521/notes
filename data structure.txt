@@ -229,5 +229,9 @@ public int height(TreeNode root) {
 }
 this code is by counting edges 
 
+bfs will be having : sc o(width)
+dfs will be having :sc o(height)
+tc will be o(n) for both
+
 
 

@@ -1,6 +1,8 @@
 data structure
 
 tree : 
+we need tree for heirarchical structural arrangement or storage
+
 *there can be two ways for calculate height one is by node second by edges but most of the channels has given nodes approach
 so height of tree is max number of nodes from root to leaf
 and height of node is max number of nodes from that node to leaf node
@@ -35,6 +37,12 @@ right skewed : tree expands only on right side
 
 in both the case it took O(n) time to search insert and delete in worst case , but usually binary tree takes log n time for these operations , so to takel this problem avl tree comes into existance which balance the skewed tree
 
+heaps: heaps are nothing but complete binary tree represend in array , which are in sorted (min , max)
+min heap : min ele at top(root)
+max heap : max ele at top(root)
+Priority queue uses heap in its internal structure , it gives smallest item in min heap in O(1) and maximum item in max heap in O(1)
+bt insertion and deletion take logn
+heap sort takes nlogn
 
 
 queue :

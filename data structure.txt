@@ -4,7 +4,6 @@ tree :
 we need tree for heirarchical structural arrangement or storage
 
 derivation for height of tree:
-
 add nodes from all level
 n = 1 + 2 + 4 + 8 + ... + 2^h
 

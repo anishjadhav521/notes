@@ -44,6 +44,12 @@ Priority queue uses heap in its internal structure , it gives smallest item in m
 bt insertion and deletion take logn
 heap sort takes nlogn
 
+insert at the end , that element will keep on comparing with its parent element , and according to max and min heap it will move upwards
+in min heap if element is less that parent element then parent element nd inserted element will swap and vice versa in max heap ,tc : logn
+
+in deletion delete from root , and swap that empty root position with last element in tree , and start sorting
+compare with left and right node and keep on swapping till left or right is null , tc : logn
+
 
 queue :
 

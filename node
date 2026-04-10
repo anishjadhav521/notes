@@ -127,3 +127,21 @@ when we pass a callback to function that call back is executed once function exe
 in event loop that call back has been registered for respe function once function has executed it call the callback
 
 
+global net which catches all the errors that are not handled in application or missed
+process.on("uncaughtException", (err) => {
+  console.error("Fatal error:", err);
+  process.exit(1);
+});
+
+process.on("unhandledRejection", (reason) => {
+  console.error("Unhandled promise:", reason);
+  process.exit(1);
+});
+
+async function bootstrap() {
+  const app = await NestFactory.create(AppModule);
+  await app.listen(3000);
+}
+
+bootstrap();
+

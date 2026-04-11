@@ -58,6 +58,8 @@ in min heap if element is less that parent element then parent element nd insert
 in deletion delete from root , and swap that empty root position with last element in tree , and start sorting
 compare with left and right node and keep on swapping till left or right is null , tc : logn
 
+current root (i) then its left in array will be (i*2+1) , and right in array will be (i*2+2)
+
 
 queue :
 

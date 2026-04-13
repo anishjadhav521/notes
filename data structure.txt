@@ -100,11 +100,9 @@ ii) dynamic (by using linked list)
 
 auxiliary space is space which is temporly used for calculation in algorithm
 
+graph:
+total degree of graph is : 2 * edges
 
-tree imp concepts :
-
-balanced binary tree = height of left subtree - height of right sub tree <= 1
-diameter = height of left subtree + height of right sub tree
 
 
 PATTERNS : 
@@ -256,6 +254,11 @@ this code is by counting edges
 bfs will be having : sc o(width)
 dfs will be having :sc o(height)
 tc will be o(n) for both
+
+tree imp concepts :
+
+balanced binary tree = height of left subtree - height of right sub tree <= 1
+diameter = height of left subtree + height of right sub tree
 
 
 

@@ -1,0 +1,4 @@
+enum : are resolved to objects at runtime
+types : they are only at runtime , do not present at runtime
+
+Union types are preferred because they are type‑only, safer, lighter, and integrate better with TypeScript’s narrowing and exhaustiveness checks. Enums should be used only when a runtime value or external mapping is required.

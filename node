@@ -1,5 +1,3 @@
-
-
 event loop :
 
 microtask : microtask is a function which is called after main call stack is empty and this is called by program which made it (more priority than macrotask)
@@ -19,6 +17,33 @@ to avoid this problem node register event emission callback inside process.nextT
 e.g. return process.nextTick(() => server.emit('listening'));
 
 promises are in microtask and settimout is in macro
+async work doesnt handled by js , this has been delegated to runtime environments eg. for node its node api , for browser its web api
+once work execution done in that reespective environments their callback are registered in macrotask(callback queues) queues
+after that they are forwarded to callstack which is of js, where final code runs
+
+Promises are handled by the JavaScript engine itself (V8), not Web APIs / Node APIs
+JS engine creates a Promise object
+Resolution is tracked inside the JS engine
+.then() callback goes to the Microtask Queue
+
+Call Stack → Executes JS code
+Web APIs / Node APIs → Handle async work
+Callback Queue → Holds ready callbacks
+Microtask Queue → Holds Promise callbacks
+Event Loop → Coordinates execution
+
+and that microtask is of js not run time environments like node and browser, they have macrotask,: below have details
+js :
+- Call Stack ✅
+- Microtask / Job Queue ✅
+- Promise semantics ✅
+
+node /browser :
+- Event Loop ❌ (not JS)
+- Macrotask / Task Queues ❌
+- Timers ❌
+- I/O ❌
+- DOM ❌
 
 Promise :
 

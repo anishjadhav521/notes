@@ -264,4 +264,20 @@ balanced binary tree = height of left subtree - height of right sub tree <= 1
 diameter = height of left subtree + height of right sub tree
 
 
+graph:
+
+dfs in ajc matrix
+ void dfs(boolean[] isVisited, int[][] isConnected , int node){
+
+        isVisited[node] = true;
+
+        for(int nei = 0 ;nei<isConnected.length;nei++){
+
+            if(isConnected[node][nei] == 1 && !isVisited[nei] )
+            dfs(isVisited,isConnected,nei);
+
+        }
+    }
+
+
 

@@ -2,3 +2,23 @@ enum : are resolved to objects at runtime
 types : they are only at runtime , do not present at runtime
 
 Union types are preferred because they are type‑only, safer, lighter, and integrate better with TypeScript’s narrowing and exhaustiveness checks. Enums should be used only when a runtime value or external mapping is required.
+enums add extra complexity in runtime so use it when exact value match is required dont use when just requies type at compile time
+
+interface nd types
+Prefer type for unions / computed types => union(|) 
+eg. type Status = "Pending" | "Approved" | "Rejected";
+Use interface for object shapes (especially public APIs) , they can be inherited means extended , type can also exteds bt its syntax is not clean
+we can mix interface and type
+e.g
+interface User {
+  id: number;
+  name: string;
+}
+
+type UserResponse = User | null;
+
+***
+records are serializable means easily convertable to json object
+bt map are not serializable
+
+Object.fromEntries([ [1,2] , [2,b] ]) converts arr into key value pair object 

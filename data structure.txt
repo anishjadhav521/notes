@@ -105,6 +105,7 @@ total degree of undirected graph is : 2 * edges
 nd for directed 
 In-degree → incoming edges
 Out-degree → outgoing edges
+tc for bfs nd dfs : N * 2E
 
 
 

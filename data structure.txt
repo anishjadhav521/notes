@@ -281,4 +281,20 @@ dfs in ajc matrix
     }
 
 
+comman pattern for bfs in array:
+
+take q put into q 
+
+int[][] directions = {{1,0},{0,1},{-1,0},{0,-1}}; 
+while(!q.isEmpty())
+{
+int[] coordinates = q.poll();
+   for(int[] direction : directions){
+    
+            int r = coordinates[0]+direction[0];
+            int c = coordinates[1]+direction[1];
+            //do any stuff on r and c
+    
+   }
+}
 

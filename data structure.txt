@@ -104,11 +104,14 @@ ii) dynamic (by using linked list)
 auxiliary space is space which is temporly used for calculation in algorithm
 
 graph:
-total degree of undirected graph is : 2 * edges 
+total degree of undirected graph is : 2 * edges (bcoz ur are going to travers each edge 2 time 1->2 , 2->1)
 nd for directed 
 In-degree → incoming edges
 Out-degree → outgoing edges
-tc for bfs nd dfs : N * 2E
+tc for bfs nd dfs : V + 2E => v+E
+
+for directed graphh 
+dfs and : v + E 
 
 
 

@@ -1,6 +1,16 @@
 dsa templates
 
-backtracting template :
+DP TEMPLATE :
+
+this is common pattern for take and non take
+recurssion(int index){
+
+	for(int i = index){
+ 			recurssion(index+1);
+	}
+}
+
+check meet in middle algo
 
 void dfs(parameters){
 

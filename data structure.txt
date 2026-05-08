@@ -1,5 +1,40 @@
 data structure
 
+
+imp always take look at constrain first
+n ≤ 1,000
+→ O(n²) might work
+(Because 1000² = 10 lakh operations, manageable)
+
+n ≤ 100,000 or 1,000,000
+→ O(n²) will likely TLE
+→ You need O(n) or O(n log n)
+
+Practical thinking:
+
+If small constraints:
+
+* Nested loops
+* Brute force
+* DP sometimes
+
+If large constraints:
+
+Think:
+
+* HashMap
+* Two Pointers
+* Sliding Window
+* Binary Search
+* Heap
+
+Shortcut:
+
+* n ≤ 20 → Backtracking / Bitmask
+* n ≤ 1000 → O(n²) okay
+* n ≤ 10⁵ → O(n log n) or O(n)
+* n very large → Math / Formula / Optimization
+
 ** todo 
 bucket , radix , count sort
 

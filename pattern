@@ -185,3 +185,7 @@ int[] coordinates = q.poll();
    }
 }
 
+stack
+
+next greater , next smaller 
+

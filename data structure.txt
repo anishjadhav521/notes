@@ -1,5 +1,8 @@
 data structure
 
+int capacity is 2.1 × 10^9 in +ve
+           range      -2.1* 10^9 <= target <= 2.1 * 10^9
+If the result can exceed about 2.1 × 10^9, use long.
 
 imp always take look at constrain first
 n ≤ 1,000

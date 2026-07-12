@@ -153,6 +153,9 @@ tc for bfs nd dfs : V + 2E => v+E
 for directed graphh 
 dfs and : v + E 
 
+dijkstras algo : tc 
+for priority queue : O(ElogV)
+
 
 
 PATTERNS : 

@@ -142,6 +142,13 @@ ii) dynamic (by using linked list)
 auxiliary space is space which is temporly used for calculation in algorithm
 
 graph:
+
+dense graph: means every node is connected to all other nodes
+
+Sparse graph: E≈V
+Dense graph: E≈V square
+
+
 total degree of undirected graph is : 2 * edges (bcoz ur are going to travers each edge 2 time 1->2 , 2->1)
 nd for directed 
 In-degree → incoming edges
@@ -155,6 +162,8 @@ dfs and : v + E
 
 dijkstras algo : tc 
 for priority queue : O(ElogV)
+
+for set based : O(V+E(logv))
 
 
 

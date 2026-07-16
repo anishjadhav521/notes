@@ -143,6 +143,11 @@ auxiliary space is space which is temporly used for calculation in algorithm
 
 graph:
 
+Remember for DSA
+
+* Undirected complete graph: \frac{n(n-1)}{2}
+* Directed complete graph: n(n-1)
+
 dense graph: means every node is connected to all other nodes
 
 Sparse graph: E≈V
@@ -164,6 +169,7 @@ dijkstras algo : tc
 for priority queue : O(ElogV)
 
 for set based : O(V+E(logv))
+
 
 
 

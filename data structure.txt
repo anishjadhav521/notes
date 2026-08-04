@@ -107,6 +107,48 @@ this technique saves time , as we are storing ans in tree and we use divide nd c
 instead if we were using array we have to always calculate the ans , O(n) -> in tree we calculate once nd store it in tree 
 if we have to update any element then we use bottom up approach 
 
+int query(int node, int start, int end, int left, int right) {
+
+    // 1. No overlap
+    if (right < start || end < left) {
+        return 0;
+    }
+
+    // 2. Complete overlap
+    if (left <= start && end <= right) {
+        return tree[node];
+    }
+
+    // 3. Partial overlap
+    int mid = (start + end) / 2;
+
+    int leftSum = query(2 * node, start, mid, left, right);
+    int rightSum = query(2 * node + 1, mid + 1, end, left, right);
+
+    return leftSum + rightSum;
+}
+
+
+void update(int node, int start, int end, int index, int value) {
+
+    // Leaf node
+    if (start == end) {
+        tree[node] = value;
+        return;
+    }
+
+    int mid = (start + end) / 2;
+
+    if (index <= mid) {
+        update(2 * node, start, mid, index, value);
+    } else {
+        update(2 * node + 1, mid + 1, end, index, value);
+    }
+
+    // Recalculate current node
+    tree[node] = tree[2 * node] + tree[2 * node + 1];
+}
+
 queue :
 
 1.linear queue

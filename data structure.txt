@@ -101,6 +101,11 @@ compare with left and right node and keep on swapping till left or right is null
 
 current root (i) then its left in array will be (i*2+1) , and right in array will be (i*2+2)
 
+in complete binary tree number of leaf nodes are n/2
+Even n → n/2 leaves
+Odd n → (n+1)/2 leaves
+
+
 segment tree :
 basically segment tree is generated to store ans of array like , sum of array bet 2 indexes , max element bet 2 indexes 
 this technique saves time , as we are storing ans in tree and we use divide nd conquer to find the ans thats why it takes logn time

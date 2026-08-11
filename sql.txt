@@ -109,3 +109,5 @@ CROSS APPLY (
 ) o;
 
 
+inner join gives you all the data , in cross apply you can filter by top 1 , order by etc
+

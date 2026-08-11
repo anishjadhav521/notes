@@ -88,3 +88,24 @@ Consistent lock order	 Two transactions waiting on each other in a cycle
 Short transactions	   Locks held too long, queuing up other transactions
 Selective WHERE (PK)	 Accidentally locking rows you don't need
 
+
+cross apply : 
+
+its table valued function , used to give result on left side table 
+
+JOIN
+→ Match two independent tables
+
+CROSS APPLY
+→ For EACH left row, execute the right-side query
+
+SELECT e.id, e.name, o.order_id, o.order_date
+FROM Employees e
+CROSS APPLY (
+    SELECT TOP 1 *
+    FROM Orders o
+    WHERE o.employee_id = e.id
+    ORDER BY o.order_date DESC
+) o;
+
+
